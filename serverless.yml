@@ -67,7 +67,7 @@ custom:
     # basePath: pactbroker
     domainName: ${env:SERVERLESS_DOMAIN_NAME}
     certificateName: ${env:SERVERLESS_CERTIFICATE_NAME}
-    stage: dev
+    stage: development
     createRoute53Record: false
   stages:
     dev:
