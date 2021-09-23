@@ -30,7 +30,13 @@ functions:
     handler: rack_adapter.handler
     events:
       - http: ANY /
-      - http: ANY {proxy+} 
+      - http: ANY {proxy+}
+    vpc:
+      securityGroupIds:
+        - ${self:custom.stages.${self:provider.stage}.securityGroupId}
+      subnetIds:
+        - ${self:custom.stages.${self:provider.stage}.subnetId1}
+        - ${self:custom.stages.${self:provider.stage}.subnetId2}
 
 custom:
   ignore: true
@@ -63,3 +69,8 @@ custom:
     certificateName: ${env:SERVERLESS_CERTIFICATE_NAME}
     stage: dev
     createRoute53Record: false
+  stages:
+    dev:
+      securityGroupId: ${env:DEV_SECURITY_GROUP_ID}
+      subnetId1: ${env:DEV_SUBNET_ID_1}
+      subnetId2: ${env:DEV_SUBNET_ID_2}
