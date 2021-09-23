@@ -70,7 +70,7 @@ custom:
     stage: dev
     createRoute53Record: false
   stages:
-    dev:
+    development:
       securityGroupId: ${env:DEV_SECURITY_GROUP_ID}
       subnetId1: ${env:DEV_SUBNET_ID_1}
       subnetId2: ${env:DEV_SUBNET_ID_2}
